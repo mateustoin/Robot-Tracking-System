@@ -71,7 +71,6 @@ scannerCv::scannerCv(QObject *parent) : QObject (parent)
          * */
 
         qDebug() << "ARDUINO DISPONÍVEL NA PORTA: " << arduino->portName();
-
         scannerCv::qrcodeScanner();
 
     }else{
@@ -113,10 +112,6 @@ void scannerCv::setPwmValue(const QString &pwmValue)
     m_pwmValue = pwmValue;
 
     scannerCv::updateLED(pwmValue); // Imprime letra "c" antes do número, como esperado para mudar led individualmente
-    //qDebug() << "Valor led3: " << pwmValue;
-
-    //emit pwmValueChanged();
-
 }
 
 // Adicionando mais um método para a classe Dialog
