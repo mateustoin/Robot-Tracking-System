@@ -72,6 +72,7 @@ scannerCv::scannerCv(QObject *parent) : QObject (parent)
 
         qDebug() << "ARDUINO DISPONÍVEL NA PORTA: " << arduino->portName();
 
+        //Se o arduino estiver disponível, realiza chamada da função que abrirá a raspicam e começará o algoritmo de rastreio de QrCodes
         scannerCv::qrcodeScanner();
 
     }else{
@@ -107,16 +108,9 @@ void scannerCv::readSerial(){
 
 void scannerCv::setPwmValue(const QString &pwmValue)
 {
-    //if (pwmValue == m_pwmValue)
-    //    return;
-
     m_pwmValue = pwmValue;
 
     scannerCv::updateLED(pwmValue); // Imprime letra "c" antes do número, como esperado para mudar led individualmente
-    //qDebug() << "Valor led3: " << pwmValue;
-
-    //emit pwmValueChanged();
-
 }
 
 // Adicionando mais um método para a classe Dialog
@@ -219,7 +213,6 @@ void scannerCv::qrcodeScanner()
                 else{
                     qDebug() << "Já chegou no destino!";
                     scannerCv::updateLED("a255");
-                    //QThread::msleep(1000);
                 }
 
             }
