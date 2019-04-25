@@ -14,8 +14,6 @@
 #include <raspicam/raspicam_cv.h>
 #include "camera.h"
 
-#include <QThread>
-
 /*
  * Valores referentes a quantidade de QrCodes presentes no ambiente e o ponto final de localização
  */
@@ -30,17 +28,14 @@ class scannerCv : public QObject
 
 public:
     explicit scannerCv(QObject *parent = nullptr);
-    //scannerCv();
 
+    // Atualiza valores de vendorId e productId quando é chamado
     void setVendorProductID(const quint16 vendorId, const quint16 productId);
-    void setPwmValue(const QString &pwmValue);
 
     int locAtual, locProx; // Armazena localização atual quando ler o primeiro QrCode e seta próximo ponto
     string proximo, anterior, data;
 
     void qrcodeScanner();
-
-    static void msleep(unsigned long msecs){QThread::msleep(msecs);}
 
 private slots:
     void readSerial();
@@ -50,12 +45,10 @@ private:
 
     QSerialPort *arduino;
     //Depois de identificar no debug o vendor e product ID
-    quint16 arduino_mega_vendor_id;
-    quint16 arduino_mega_product_id;
+    quint16 vendorId;
+    quint16 productId;
     QString arduino_port_name; // variável que vai receber o nome da porta que o arduino está conectado
     bool arduino_is_available; // booleano para comparar se o arduino ainda está conectado
-
-    QString m_pwmValue;
 
     //Inicializando atributos para leitura da porta serial
     QString m_sensorValue;

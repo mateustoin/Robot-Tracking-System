@@ -1,9 +1,11 @@
 QT += core
+
+# serialport adicionado para uso das bibliotecas para comunicação serial com arduino
 QT += serialport
-# LIBS += libQt5SerialPort.a
 CONFIG += c++11 console
 CONFIG += app_bundle
 
+# Includes do opencv e da biblioteca zbar, utilizada em cima do opencv para otimizar leitura de QrCodes
 INCLUDEPATH += /usr/local/include
 INCLUDEPATH += /usr/local/include/opencv
 INCLUDEPATH += /usr/local/include/opencv2
@@ -20,7 +22,7 @@ INCLUDEPATH += /usr/local/include/opencv2/ml
 INCLUDEPATH += /usr/local/include/opencv2/contrib
 INCLUDEPATH += /usr/include/zbar
 
-
+# Flags de compilação para o código com opencv, raspicam e zbar
 LIBS += -lzbar `pkg-config opencv --cflags --libs` -lraspicam -lraspicam_cv
 
 # The following define makes your compiler emit warnings if you use

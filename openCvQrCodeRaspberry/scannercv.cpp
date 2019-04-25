@@ -36,8 +36,8 @@ scannerCv::scannerCv(QObject *parent) : QObject (parent)
 
     foreach(const QSerialPortInfo &serialPortInfo, QSerialPortInfo::availablePorts()){
         if(serialPortInfo.hasVendorIdentifier() && serialPortInfo.hasProductIdentifier()){
-            if(serialPortInfo.vendorIdentifier() == arduino_mega_vendor_id){
-                if(serialPortInfo.productIdentifier() == arduino_mega_product_id){
+            if(serialPortInfo.vendorIdentifier() == vendorId){
+                if(serialPortInfo.productIdentifier() == productId){
                     arduino_port_name = serialPortInfo.portName(); // Se passar por todas as verificações recebe o nome da porta
                     arduino_is_available = true; // Se passar por todas as verificações recebe true na verificação
                 }
@@ -83,8 +83,8 @@ scannerCv::scannerCv(QObject *parent) : QObject (parent)
 }
 
 void scannerCv::setVendorProductID(quint16 vendorId, quint16 productId){
-    arduino_mega_vendor_id = vendorId;
-    arduino_mega_product_id = productId;
+    this->vendorId = vendorId;
+    this->productId = productId;
 }
 
 void scannerCv::readSerial(){
@@ -104,13 +104,6 @@ void scannerCv::readSerial(){
         serialBuffer = "";
         //emit sensorReadChanged();
     }
-}
-
-void scannerCv::setPwmValue(const QString &pwmValue)
-{
-    m_pwmValue = pwmValue;
-
-    scannerCv::updateLED(pwmValue); // Imprime letra "c" antes do número, como esperado para mudar led individualmente
 }
 
 // Adicionando mais um método para a classe Dialog
@@ -135,15 +128,15 @@ void scannerCv::qrcodeScanner()
         //}
 	raspicam::RaspiCam_Cv cap;
 	OpenPiCamera(cap);
-	cv::Mat frame;
 	IplImage *frameCam;
+
+    cv::Mat frame;
         //cv::Mat img = cv::imread("/home/busta/git/zbar-code/examples/barcode.png");
 
         zbar::ImageScanner scanner;
         scanner.set_config(zbar::ZBAR_NONE, zbar::ZBAR_CFG_ENABLE, 1);
 	
-        for(;;) {
-            
+        for(;;) {       
             //cap >> frame; // get a new frame from camera
             //if (frame.empty())
             //    break;
