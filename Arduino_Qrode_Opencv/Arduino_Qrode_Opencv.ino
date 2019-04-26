@@ -8,7 +8,7 @@
 #define IN3 6 //MOTOR DIREITO PARA TRAS
 #define IN4 9 //MOTOR DIREITO PARA FRENTE
 
-#include <string.h>
+//#include <string.h>
 
 int count = 0;
 
@@ -16,6 +16,13 @@ void setup()
 {
   /* Iniciando a Serial e passando a taxa de baudrate */
   Serial.begin(9600); 
+  
+  pinMode(IN1, OUTPUT);
+  pinMode(IN2, OUTPUT);
+  pinMode(IN3, OUTPUT);
+  pinMode(IN4, OUTPUT);
+  pinMode(13, OUTPUT);
+  
   digitalWrite(IN1, LOW);
   digitalWrite(IN2, LOW);
   digitalWrite(IN3, LOW);
@@ -32,9 +39,6 @@ void loop()
     //delay(10);
   }
   
-//  Serial.print(++count);
-//  Serial.print(",");
-//  Serial.flush();
 }
 
 void escreve_led (char* letra, int brilho){
@@ -55,6 +59,8 @@ void escreve_led (char* letra, int brilho){
     analogWrite(IN4, 100);
     analogWrite(IN1, 0);
     analogWrite(IN3, 0);
+    
+    digitalWrite(13, HIGH);
     delay(20);
   }
   else if(letra == 'a' && brilho == 1){
@@ -65,6 +71,8 @@ void escreve_led (char* letra, int brilho){
     analogWrite(IN3, 100);
     analogWrite(IN2, 0);
     analogWrite(IN4, 0);
+    
+    digitalWrite(13, HIGH);
     delay(20);
   }
 
