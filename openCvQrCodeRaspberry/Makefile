@@ -33,7 +33,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = openCvQrCode1.0.0
-DISTDIR = /home/pi/Downloads/Robot-Tracking-System-master/openCvQrCode/.tmp/openCvQrCode1.0.0
+DISTDIR = /home/pi/Downloads/Robot-Tracking-System/openCvQrCodeRaspberry/.tmp/openCvQrCode1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-O1
 LIBS          = $(SUBLIBS) -lzbar `pkg-config opencv --cflags --libs` -lraspicam -lraspicam_cv -lQt5Gui -lQt5SerialPort -lQt5Core -lGLESv2 -lpthread 
@@ -342,7 +342,7 @@ compiler_moc_header_clean:
 moc_scannercv.cpp: camera.h \
 		scannercv.h \
 		/usr/lib/arm-linux-gnueabihf/qt5/bin/moc
-	/usr/lib/arm-linux-gnueabihf/qt5/bin/moc $(DEFINES) -I/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/linux-g++ -I/home/pi/Downloads/Robot-Tracking-System-master/openCvQrCode -I/usr/local/include -I/usr/local/include/opencv -I/usr/local/include/opencv2 -I/usr/local/include/opencv2/core -I/usr/local/include/opencv2/highgui -I/usr/local/include/opencv2/imgproc -I/usr/local/include/opencv2/flann -I/usr/local/include/opencv2/photo -I/usr/local/include/opencv2/video -I/usr/local/include/opencv2/features2d -I/usr/local/include/opencv2/objdetect -I/usr/local/include/opencv2/calib3d -I/usr/local/include/opencv2/ml -I/usr/local/include/opencv2/contrib -I/usr/include/zbar -I/usr/include/arm-linux-gnueabihf/qt5 -I/usr/include/arm-linux-gnueabihf/qt5/QtGui -I/usr/include/arm-linux-gnueabihf/qt5/QtSerialPort -I/usr/include/arm-linux-gnueabihf/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/arm-linux-gnueabihf/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/arm-linux-gnueabihf/6/include -I/usr/local/include -I/usr/lib/gcc/arm-linux-gnueabihf/6/include-fixed -I/usr/include/arm-linux-gnueabihf -I/usr/include scannercv.h -o moc_scannercv.cpp
+	/usr/lib/arm-linux-gnueabihf/qt5/bin/moc $(DEFINES) -I/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/linux-g++ -I/home/pi/Downloads/Robot-Tracking-System/openCvQrCodeRaspberry -I/usr/local/include -I/usr/local/include/opencv -I/usr/local/include/opencv2 -I/usr/local/include/opencv2/core -I/usr/local/include/opencv2/highgui -I/usr/local/include/opencv2/imgproc -I/usr/local/include/opencv2/flann -I/usr/local/include/opencv2/photo -I/usr/local/include/opencv2/video -I/usr/local/include/opencv2/features2d -I/usr/local/include/opencv2/objdetect -I/usr/local/include/opencv2/calib3d -I/usr/local/include/opencv2/ml -I/usr/local/include/opencv2/contrib -I/usr/include/zbar -I/usr/include/arm-linux-gnueabihf/qt5 -I/usr/include/arm-linux-gnueabihf/qt5/QtGui -I/usr/include/arm-linux-gnueabihf/qt5/QtSerialPort -I/usr/include/arm-linux-gnueabihf/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/arm-linux-gnueabihf/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/arm-linux-gnueabihf/6/include -I/usr/local/include -I/usr/lib/gcc/arm-linux-gnueabihf/6/include-fixed -I/usr/include/arm-linux-gnueabihf -I/usr/include scannercv.h -o moc_scannercv.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:

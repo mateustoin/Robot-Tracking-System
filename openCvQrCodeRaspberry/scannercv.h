@@ -45,8 +45,8 @@ private:
 
     QSerialPort *arduino;
     //Depois de identificar no debug o vendor e product ID
-    quint16 vendorId;
-    quint16 productId;
+    quint16 vendorId = 10755;
+    quint16 productId = 67;
     QString arduino_port_name; // variável que vai receber o nome da porta que o arduino está conectado
     bool arduino_is_available; // booleano para comparar se o arduino ainda está conectado
 

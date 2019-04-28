@@ -31,7 +31,7 @@ scannerCv::scannerCv(QObject *parent) : QObject (parent)
             qDebug() << "Product ID: " << serialPortInfo.productIdentifier();
         }
 
-        setVendorProductID(serialPortInfo.vendorIdentifier(), serialPortInfo.productIdentifier());
+        //setVendorProductID(serialPortInfo.vendorIdentifier(), serialPortInfo.productIdentifier());
     }
 
     foreach(const QSerialPortInfo &serialPortInfo, QSerialPortInfo::availablePorts()){
