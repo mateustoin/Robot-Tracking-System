@@ -35,6 +35,7 @@ public:
     int locAtual, locProx; // Armazena localização atual quando ler o primeiro QrCode e seta próximo ponto
     string proximo, anterior, data;
 
+    // Método que faz a chamda das rotinas relacionadas ao opencv
     void qrcodeScanner();
 
 private slots:

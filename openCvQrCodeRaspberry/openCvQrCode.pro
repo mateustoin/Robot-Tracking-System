@@ -22,7 +22,7 @@ INCLUDEPATH += /usr/local/include/opencv2/ml
 INCLUDEPATH += /usr/local/include/opencv2/contrib
 INCLUDEPATH += /usr/include/zbar
 
-# Flags de compilação para o código com opencv, raspicam e zbar
+# Flags de compilação para o código com opencv, zbar, opencv e raspicam
 LIBS += -lzbar `pkg-config opencv --cflags --libs` -lraspicam -lraspicam_cv
 
 # The following define makes your compiler emit warnings if you use
