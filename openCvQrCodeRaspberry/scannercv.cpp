@@ -31,7 +31,9 @@ scannerCv::scannerCv(QObject *parent) : QObject (parent)
             qDebug() << "Product ID: " << serialPortInfo.productIdentifier();
         }
 
-        setVendorProductID(serialPortInfo.vendorIdentifier(), serialPortInfo.productIdentifier());
+		//Verifica a porta em que o arduino está conectado e atualiza valores de vendor e product ID
+		if (serialPortInfo.hasVendorIdentifier() && serialPortInfo.hasProductIdentifier())
+        	setVendorProductID(serialPortInfo.vendorIdentifier(), serialPortInfo.productIdentifier());
     }
 
     foreach(const QSerialPortInfo &serialPortInfo, QSerialPortInfo::availablePorts()){
