@@ -76,4 +76,5 @@ void escreve_led (char* letra, int brilho){
     delay(20);
   }
 
+  digitalWrite(13, LOW);
 }

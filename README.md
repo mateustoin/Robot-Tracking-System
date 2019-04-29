@@ -11,3 +11,5 @@ Sistema embarcado para localização de robôs móveis dentro de ambientes contr
 - Instalar raspicam para C++ encontrado em (https://github.com/cedricve/raspicam)
 - Mudança de captura de frames do opencv usando raspicam
 - Mudança das flags de compilação no .pro do opencv, adição de flags para raspicam
+- Inicialização do executável em C++ pelo /etc/profile, usando link p/ variável que foi encontrado com `sudo ln -s caminho_arquivo`
+- Utilização do script em python encontrado em https://github.com/TonyLHansen/raspberry-pi-safe-off-switch/, para desligamento da raspberry embarcada. Executado da mesma forma que o anterior.

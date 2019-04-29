@@ -49,4 +49,3 @@ void ClosePiCamera(raspicam::RaspiCam_Cv &Camera)
 {
 	Camera.release();
 }	
-
